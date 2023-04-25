@@ -21,6 +21,11 @@ Ok to proceed? (y) y
 ✔ What import alias would you like configured? … @/*
 ```
 ```
+npm run dev
+```
+
+
+```
 cd blog-ai-app 
 npm i @heroicons/react
 ```
@@ -36,8 +41,18 @@ npx tailwindcss init
 - [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=alfredbirk.tailwind-documentation)
 
   - Mac: `cmd + ctrl + t`
+    - Justify Content: `flex` `justify-between`
+    - Padding: `px-10` `py-4`
+    - Font Size: `text-sm` `text-3xl md:text-5xl`
+    
+
+
+
+
+# Dependencies
 
 ```
+npm i @heroicons/react
 npm i @tailwindcss/line-clamp
 npm i -D @tailwindcss/typography
 ```
