@@ -69,6 +69,108 @@ npm i -D @tailwindcss/typography
 [Vercel]
 [ChatGPT]
 
+# PlanetScale CLI
+[PlanetScale CLI](https://github.com/planetscale/cli#installation)
+```
+cd next-ai-blog-app
+brew install planetscale/tap/pscale
+```
+
+```
+cd blog-ai-app 
+npx prisma init
+```
+## Prisma Extention
+[Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+
+## PlanetScale Database
+[PlanetScale](https://planetscale.com/)
+- PlanetScale is the world’s most advanced serverless MySQL platform
+- create account - for Free account is only one Database
+  - New database
+    - Name: blog-ai-app
+    - Region: Amazon Web Servicers us-east-1(Northern Virginia) <!-- 自分の現在地に近いところ -->
+      - connect
+        - copy and paste `Username` and `Password` to `.env` file
+        - connect with: Node.js
+        - copy `DATABASE_URL` from `.env` tub and paste to `.env` <!-- 元からあった `DATABASE_URL` は不要 -->
+          - Add `&&sslcert=/etc/ssl/cert.pem` end of `DATABASE_URL`
+      - if connect issue
+        - [Connecting to PlanetScale securely](https://planetscale.com/docs/concepts/secure-connections)
+        - [Prisma Connecting to PlanetScale](https://github.com/prisma/prisma/issues/11246)
+
+- Prisma
+  - schema.prisma
+    - datasource db
+      - provider = "mysql"
+      - relationMode = "prisma"
+      - [Prisma schema](https://www.prisma.io/docs/concepts/components/prisma-schema)
+      ```
+      model Post {
+        id        String   @id @default(cuid())
+        createdAt DateTime @default(now())
+        updatedAt DateTime @updatedAt
+        title     String
+        category  String
+        content   String   @db.Text
+        author    String
+        image     String
+        snippet   String   @db.Text
+      }
+      ```
+
+- Push Prisma Database and verify at [planetscale.com](https://app.planetscale.com/)
+  - Push Prisma Database
+  ```
+  cd blog-ai-app 
+  npx prisma db push
+  ```
+  - planetscale.com
+    - overview has `Tables 1`
+    - type `show tables;` at console 
+      - result
+      ```
+      1 row in (5.76 ms)
+      Tables_in_blog-ai-app
+      Post
+      ```
+    - type `SELECT * from Post;` at console 
+      - result is blank table
+
+- create Prisma Database
+  - create file at /prisma/seed.ts
+  - [Seeding your database](https://www.prisma.io/docs/guides/migrate/seed-database)
+    ```
+    cd blog-ai-app 
+    npm install -D typescript ts-node @types/node
+    ```
+    - Add package.json
+    ```
+    "prisma": {
+      "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    },
+    ```
+    - Update Prisma Database
+    ```
+    cd blog-ai-app 
+    npx prisma db seed
+    ```
+      - verify at planetscale.com
+        - type `show tables;` and `SELECT * from Post;` at console 
+          - result
+      - verify at Browser
+      ```
+      cd blog-ai-app 
+      npx prisma studio
+      ```
+        - result at `http://localhost:5555/`
+          - click `post`
+
+
+<!-- 
+show tables;
+SELECT * from Post;
+ -->
 
 
 
