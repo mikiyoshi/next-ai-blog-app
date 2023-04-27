@@ -173,7 +173,22 @@ show tables;
 SELECT * from Post;
  -->
 
+- [Tiptap](https://tiptap.dev/)
+  - For Page contents Edit form
 
+  - [Tiptap Instration](https://tiptap.dev/installation/react#2-install-the-dependencies)
+  ```
+  npm install @tiptap/react @tiptap/pm @tiptap/starter-kit
+  ```
+  - Content.tsx
+  ```
+    const editor = useEditor({
+    extensions: [
+      StarterKit,
+    ],
+    content: '<p>Hello World!</p>',
+  })
+  ```
 
 
 
