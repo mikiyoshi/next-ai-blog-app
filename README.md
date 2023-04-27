@@ -158,7 +158,7 @@ npx prisma init
       - verify at planetscale.com
         - type `show tables;` and `SELECT * from Post;` at console 
           - result
-      - verify at Browser
+      - verify at Browser (Prisma API)
       ```
       cd blog-ai-app 
       npx prisma studio
