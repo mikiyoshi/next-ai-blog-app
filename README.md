@@ -167,6 +167,21 @@ npx prisma init
         - result at `http://localhost:5555/`
           - click `post`
 
+- OpenAI
+  - [OpenAI](https://platform.openai.com/overview)
+    - Manage Account
+      - [API keys](https://platform.openai.com/account/api-keys)
+        - `Create new secret key`, then Copy and Paste a API Key at ~~`.env`~~ `.env.local`
+
+- OpenAI Node.js Library
+[OpenAI Node.js Library](https://github.com/openai/openai-node)
+```
+npm install openai
+```
+
+- Nexi.js Deploy
+[Static Export for App Router](https://nextjs.org/blog/next-13-3#static-export-for-app-router)
+  - Add `output: 'export'` at `next.config.js`
 
 <!-- 
 show tables;
