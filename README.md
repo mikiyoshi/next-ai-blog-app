@@ -93,6 +93,7 @@ npx prisma init
       - connect
         - copy and paste `Username` and `Password` to `.env` file
         - connect with: Node.js
+        <!-- .gitignore に `.env` をアップデートしないように設定を忘れないこと // planetscale.com から Email にパスワード流出の警告がきて、パスワードがリセットされる -->
         - copy `DATABASE_URL` from `.env` tub and paste to `.env` <!-- 元からあった `DATABASE_URL` は不要 -->
           - Add `&&sslcert=/etc/ssl/cert.pem` end of `DATABASE_URL`
       - if connect issue
