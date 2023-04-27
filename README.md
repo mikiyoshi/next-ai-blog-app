@@ -183,6 +183,12 @@ npm install openai
 [Static Export for App Router](https://nextjs.org/blog/next-13-3#static-export-for-app-router)
   - Add `output: 'export'` at `next.config.js`
 
+- vercel.com Deploy
+  - create account
+    - connect git.hub `next-ai-blog-app`
+      - Add `DATABASE_URL` and `OPENAI_API_KEY` at `Environment Variables`
+        - `DATABASE_URL` is end part replace from `&&sslcert=/etc/ssl/cert.pem` to `&&sslcert=/etc/pki/tls/certs/ca-bundle.crt`
+
 <!-- 
 show tables;
 SELECT * from Post;
