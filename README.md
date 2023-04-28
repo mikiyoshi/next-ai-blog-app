@@ -188,6 +188,11 @@ npm install openai
     - connect git.hub `next-ai-blog-app`
       - Add `DATABASE_URL` and `OPENAI_API_KEY` at `Environment Variables`
         - `DATABASE_URL` is end part replace from `&&sslcert=/etc/ssl/cert.pem` to `&&sslcert=/etc/pki/tls/certs/ca-bundle.crt`
+          - Error [Vercel build dependency caching workaround](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue)
+            - Add `"scripts"` section `"postinstall": "prisma generate"` at `package.json`
+            - Add `"scripts"` section `"build": "prisma generate && next dev"` at `package.json`
+
+
 
 <!-- 
 show tables;
